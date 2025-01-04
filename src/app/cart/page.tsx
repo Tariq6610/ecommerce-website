@@ -3,7 +3,7 @@ import React from 'react'
 import { useCartContext} from '@/components/CartContext'
 import CartItem from '@/components/CartItem'
 
-const page = () => {
+const Page = () => {
     const {cart, totalCostPrice, netPrice, discount} = useCartContext()
   return (
     <div className='max-w-[1440px] 2xl:px-[100px] flex flex-col gap-[24px] xl:px-[50px] px-[16px]'>
@@ -50,4 +50,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page;

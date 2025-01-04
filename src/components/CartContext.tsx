@@ -1,13 +1,13 @@
 "use client"
 import type { Products } from "./items";
 import { allProducts } from "./items";
-import { createContext, Dispatch, FC, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
+import { createContext, FC, ReactNode, useContext, useEffect, useState } from "react";
 
 interface CartContextType {
   addToCart: (id: number) => void; 
   removeProduct: (id: number) => void; 
-  selectColor: (id: string) => void; 
-  selectSize: (id: string) => void; 
+  // selectColor: (id: string) => void; 
+  // selectSize: (id: string) => void; 
   incrementAmount : (id : number) => void;
   decrementAmount : (id : number) => void;
   // setAmount: Dispatch<SetStateAction<number>>;
@@ -41,8 +41,8 @@ const CartContextProvider : FC<{children : ReactNode}> = ({children} ) => {
 
   const [cart, setCart] = useState<Cart[]>([])
   // const [amount, setAmount] = useState(1)
-  const [color, setColor] = useState("Blue")
-  const [size, setSize] = useState("medium")
+  // const [color, setColor] = useState("Blue")
+  // const [size, setSize] = useState("medium")
   const [totalCostPrice, settotalCostPrice] = useState(0)
   const [netPrice, setNetPrice] = useState(0)
   const [discount, setDiscount] = useState(0)
@@ -78,13 +78,13 @@ const CartContextProvider : FC<{children : ReactNode}> = ({children} ) => {
     ))
   }
 
-  function selectColor(color : string){
-    setColor(color)
-  }
+  // function selectColor(color : string){
+  //   setColor(color)
+  // }
 
-  function selectSize(size : string){
-    setSize(size)
-  }
+  // function selectSize(size : string){
+  //   setSize(size)
+  // }
   
  function handleTotalPrice(){
    const deliveryFee = 15;
@@ -105,7 +105,7 @@ useEffect(()=>{
 },[cart])
 
   return (
-    <cartContext.Provider value={{addToCart, netPrice, discount, incrementAmount,decrementAmount, selectColor, cart, selectSize, removeProduct, totalCostPrice}}>
+    <cartContext.Provider value={{addToCart, netPrice, discount, incrementAmount,decrementAmount, /*selectColor,  selectSize,*/ cart,removeProduct, totalCostPrice}}>
     {children}
     </cartContext.Provider>
   )
